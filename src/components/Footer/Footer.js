@@ -6,7 +6,7 @@ const Footer = () => (
       href='https://github.com/coachemmy/'
       className='link footer__link'
     >
-      Created By CoachEmmy
+     ©2025 - All Rights Reserved  |  Created By CoachEmmy
     </a>
   </footer>
 )
