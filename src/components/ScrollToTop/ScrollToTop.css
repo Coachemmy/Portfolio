@@ -2,10 +2,12 @@
   position: fixed;
   bottom: 2em;
   right: 4em;
-  background-color: transparent;
+  background-color: #ffffff;
+  border: 1;
+  border-radius: 10%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 200px) {
   .scroll-top {
     display: none;
   }

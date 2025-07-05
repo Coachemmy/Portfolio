@@ -1,13 +1,15 @@
 .project {
   padding: 2em;
   margin: 0 auto;
+  border-radius: 5%;
   text-align: center;
   box-shadow: var(--shadow);
   transition: transform 0.2s linear;
 }
 
 .project:hover {
-  transform: translateY(-7px);
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .project__description {

@@ -6,22 +6,23 @@
 }
 
 .light {
-  --clr-bg: #fcfcfc;
-  --clr-bg-alt: #fff;
-  --clr-fg: #555;
+  --clr-bg: #ffffff;
+  --clr-bg-alt: #444;
+  --clr-fg: #63c5da;
   --clr-fg-alt: #444;
-  --clr-primary: #2978b5;
-  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --clr-primary: #63c5da;
+  --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .dark {
-  --clr-bg: #23283e;
-  --clr-bg-alt: #2a2f4c;
-  --clr-fg: #bdbddd;
-  --clr-fg-alt: #cdcdff;
-  --clr-primary: #90a0d9;
-  --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  --clr-bg: #000000;
+  --clr-bg-alt: #ffffff;
+  --clr-fg: #63c5da;
+  --clr-fg-alt: #ffffff;
+  --clr-primary: #63c5da;
+  --shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px,
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 1px;
 }
 
 main {
@@ -123,13 +124,14 @@ main {
 
 .btn--plain {
   text-transform: initial;
-  background-color: var(--clr-bg-alt);
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-  border: 0;
+  background-color: var(--clr-bg);
+  box-shadow: rgba(235, 231, 231, 0.15) 0px 3px 3px 0px;
+  border: 10;
 }
 
 .btn--plain:hover {
   transform: translateY(-4px);
+  background-color: #63c4da1e;
 }
 
 .btn--icon {
