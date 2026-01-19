@@ -1,14 +1,10 @@
 import Resume from './utils/Emmanuel_Abiola_Resume.pdf';
 
-const header = {
-  title: 'CoachEmmy',
-}
-
 const about = {
-  name: 'Emmanuel Abiola',
-  role: 'Software / ML Engineer',
+  name: 'NO-TO-POVERTY',
+  role: 'Software / AI Engineer',
   description:
-    'Experienced Software and Machine Learning Engineer skilled in designing scalable systems and deploying AI-driven solutions. Proficient in solving complex problems, optimizing performance, and delivering impactful results. Passionate about innovation, collaboration, and creating intelligent applications that enhance user experiences and drive business success. Seeking challenging roles to grow and contribute meaningfully.',
+    'Emmanuel Abiola aka  CoachEmmy, I am an Experienced Software and Machine Learning Engineer skilled in designing scalable systems and deploying AI-driven solutions. Proficient in solving complex problems, optimizing performance, and delivering impactful results. Passionate about innovation, collaboration, and creating intelligent applications that enhance user experiences and drive business success. Seeking challenging roles to grow and contribute meaningfully.',
 
   resume: Resume,
   social: {
@@ -124,5 +120,5 @@ const contact = {
   email: 'coachemmyb@gmail.com',
 }
 
-export { header, about, projects, skills, contact }
+export { about, projects, skills, contact }
 
