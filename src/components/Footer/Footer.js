@@ -32,7 +32,7 @@ const Footer = () => (
     <div className='lg:col-span-2'>
       <h3 className='text-xl font-bold mt-4 text-[#FFBE0B]'
       style={{ color: 'red', marginTop: '24px' }}>
-        NO TO POVERTY
+        NO-TO-POVERTY
       </h3>
      
     </div>   
