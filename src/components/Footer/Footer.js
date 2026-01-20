@@ -20,11 +20,6 @@ const Footer = () => (
             LinkedIn
           </a>
         </li>
-        <li>
-          <a href='#crypto' className='hover:text-[#FFBE0B] transition-colors'>
-            Cryptocurrency Class
-          </a>
-        </li>
       </ul>
     </div>
     </div>
