@@ -2,13 +2,13 @@
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { about } from '../../portfolio';
-import CryptoModal from '../CryptoModal/CryptoModal'; // 👈 import modal
-import { useState } from 'react'; // 👈 add useState
+import CryptoModal from '../CryptoModal/CryptoModal';
+import { useState } from 'react';
 import './About.css';
 
 const About = () => {
   const { name, role, description, resume, social } = about;
-  const [isCryptoModalOpen, setIsCryptoModalOpen] = useState(false); // 👈 modal state
+  const [isCryptoModalOpen, setIsCryptoModalOpen] = useState(false);
 
   return (
     <div className='about center' style={{ marginTop: '20px' }}>
@@ -39,12 +39,11 @@ const About = () => {
         {description}
       </p>
 
-      {/* 💰 CRYPTO BUTTON — placed prominently */}
       <div className='mt-6 border pt-6'>
         <button
           onClick={() => setIsCryptoModalOpen(true)}
           style={{
-            padding: '0.75rem 1.5rem',
+            padding: '1.55rem 2.0rem',
             backgroundColor: '#FFBE0B',
             marginTop: '1rem',
             fontSize: '1rem',
@@ -57,6 +56,27 @@ const About = () => {
           }}
         >
           💰 Start Crypto Coaching
+        </button>
+      </div>
+
+      {/* 💰 Faceless BUTTON — placed prominently */}
+      <div className='mt-6 border pt-6'>
+        <button
+          // onClick={() => setIsCryptoModalOpen(true)}
+          style={{
+            padding: '1.55rem 2.0rem',
+            backgroundColor: 'white',
+            marginTop: '1rem',
+            fontSize: '1rem',
+            color: 'black',
+            fontWeight: 'bold',
+            borderRadius: '9999px',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            cursor: 'pointer',
+            transition: 'transform 0.2s',
+          }}
+        >
+          Start Faceless AI Content Creation <br /> (COMING SOON)
         </button>
       </div>
 
@@ -76,7 +96,7 @@ const About = () => {
           <>
             {social.github && (
               <a
-                href={social.github.trim()} // 👈 trim spaces!
+                href={social.github.trim()}
                 target='_blank'
                 rel='noreferrer'
                 aria-label='github'
@@ -88,7 +108,7 @@ const About = () => {
 
             {social.linkedin && (
               <a
-                href={social.linkedin.trim()} // 👈 trim spaces!
+                href={social.linkedin.trim()}
                 target='_blank'
                 rel='noreferrer'
                 aria-label='linkedin'
@@ -101,7 +121,6 @@ const About = () => {
         )}
       </div>
 
-      {/* ✅ MODAL HERE — rendered inside About, but uses fixed positioning */}
       <CryptoModal
         isOpen={isCryptoModalOpen}
         onClose={() => setIsCryptoModalOpen(false)}
