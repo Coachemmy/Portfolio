@@ -67,7 +67,11 @@ const EnrollmentModal = ({ isOpen, onClose, course }) => {
       `Message: ${formData.message || 'None'}`
     );
     
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    const emailLink = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(`New Enrollment - ${course?.title}\n\nStudent: ${formData.fullName}\nEmail: ${formData.email}\nWhatsApp: ${formData.whatsapp}\nAmount: ₦${course?.price?.toLocaleString()}\nRef: ${transactionRef}`);
+    }
   };
 
   const handlePayment = (e) => {
@@ -90,7 +94,29 @@ const EnrollmentModal = ({ isOpen, onClose, course }) => {
         course: course?.title,
         fullName: formData.fullName,
         whatsapp: formData.whatsapp,
-        message: formData.message
+        message: formData.message,
+        custom_fields: [
+          {
+            display_name: "Full Name",
+            variable_name: "full_name",
+            value: formData.fullName
+          },
+          {
+            display_name: "WhatsApp Number",
+            variable_name: "whatsapp_number",
+            value: formData.whatsapp
+          },
+          {
+            display_name: "Course",
+            variable_name: "course",
+            value: course?.title
+          },
+          {
+            display_name: "Message",
+            variable_name: "message",
+            value: formData.message || "None"
+          }
+        ]
       },
       callback: (response) => {
         setIsProcessing(false);
