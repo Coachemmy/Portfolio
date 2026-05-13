@@ -188,7 +188,7 @@ Portfolio/
 
 ### Travel & Tourism Services
 
-#### 1. China Travel & Relocation (₦15,000)
+#### 1. China Travel Consultation (₦15,000)
 - Documentation required checklist
 - Step-by-step visa guidance
 - Expatriate living advice
