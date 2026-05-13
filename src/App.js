@@ -1,65 +1,57 @@
-// src/App.js
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { ThemeContext } from './contexts/theme';
+import Navbar from './components/Navbar/Navbar';
 import About from './components/About/About';
-import Projects from './components/Projects/Projects';
-import Skills from './components/Skills/Skills';
-import Contact from './components/Contact/Contact';
+import CareerServices from './components/CareerServices/CareerServices';
+import TechCourses from './components/TechCourses/TechCourses';
+import WebServices from './components/WebServices/WebServices';
+import TravelServices from './components/TravelServices/TravelServices';
+import Reviews from './components/Reviews/Reviews';
+import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-import CryptoModal from './components/CryptoModal/CryptoModal'; // 👈 NEW
-import './App.css';
-import PortfolioGallery from './components/PortfolioGallery/PortfolioGallery';
-;
-
-const myWorks = [
-
-   {
-    title: "K-CALC Mobile App",
-    description: "Advanced scientific calculator.",
-    src: "/videos/v2.mp4",
-    type: "video",
-    tags: ["Calculator", "Mobile App"]
-  },
-  {
-    title: "China-Africa Workshop",
-    description: "Photo from China-Africa Symposium.",
-    src: "/images/i2.jpg",
-    type: "image",
-    tags: ["Symposium", "China-Africa"]
-  },
-   {
-    title: "Faceless AI",
-    description: "Content creation using AI.",
-    src: "/images/i3.png",
-    type: "image",
-    tags: ["AI", "Content Creation"]
-  },
-];
+import Projects from './pages/Projects/Projects';
+import Contact from './pages/Contact/Contact';
+import TermsOfService from './pages/TermsOfService';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import RefundPolicy from './pages/RefundPolicy';
+import Affiliate from './components/Affiliate/Affiliate';
+import Chatbot from './components/Chatbot/Chatbot';
+import AboutPage from './components/AboutPage/AboutPage';
 
 const App = () => {
   const [{ themeName }] = useContext(ThemeContext);
-  const [isCryptoModalOpen, setIsCryptoModalOpen] = useState(false);
 
   return (
-    <div id="top" className={`${themeName} app`}>
-
-      <main>
-        <About />
-        <PortfolioGallery works={myWorks} autoPlay={false} interval={6000} />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
-
-      <ScrollToTop />
+    <div id="top" className={`${themeName} font-poppins min-h-screen transition-colors duration-300 bg-white`}>
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <main className="pt-24">
+              <About />
+              <CareerServices />
+              <TechCourses />
+              <WebServices />
+              <TravelServices />
+              <Reviews />
+              <FAQ />
+            </main>
+          }
+        />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/affiliate" element={<Affiliate />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
+      </Routes>
       <Footer />
-
-      {/* Modal */}
-      <CryptoModal
-        isOpen={isCryptoModalOpen}
-        onClose={() => setIsCryptoModalOpen(false)}
-      />
+      <ScrollToTop />
+      <Chatbot />
     </div>
   );
 };

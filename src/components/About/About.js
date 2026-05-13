@@ -1,129 +1,104 @@
-// src/components/About/About.js
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { about } from '../../portfolio';
-import CryptoModal from '../CryptoModal/CryptoModal';
-import { useState } from 'react';
-import './About.css';
 
 const About = () => {
-  const { name, role, description, resume, social } = about;
-  const [isCryptoModalOpen, setIsCryptoModalOpen] = useState(false);
-
   return (
-    <div className='about center' style={{ marginTop: '20px' }}>
-      {name && (
-        <h1
-          style={{
-            marginTop: '150px',
-            marginBottom: '40px',
-            textAlign: 'center',
-          }}
-        >
-          Welcome Onboard To <br />
-          <span className='about__name' style={{ color: 'red' }}>
-            {name}
-          </span>
-        </h1>
-      )}
+    <section id="about" className="py-20 bg-gradient-to-b from-blue-50/50 to-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="relative animate-fadeInLeft">
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl shadow-primary/20 border-4 border-white">
+              <img 
+                src="/images/logo.png"
+                alt="CoachEmmy"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 animate-bounceSoft"
+              />
+            </div>
+            <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg animate-bounceSoft">
+              10+
+            </div>
+          </div>
 
-      {role && (
-        <h2 className='about__role' style={{ fontSize: '20px' }}>
-          Who am I: A {role}
-        </h2>
-      )}
-      <p
-        className='about__desc'
-        style={{ marginTop: '10px', textAlign: 'center' }}
-      >
-        {description}
-      </p>
+          <div className="text-center lg:text-left">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+              Welcome to <span className="text-primary relative inline-block">
+                CoachEmmy
+                <svg className="absolute -bottom-2 left-0 w-full h-2 text-primary/30" viewBox="0 0 200 8" preserveAspectRatio="none">
+                  <ellipse cx="100" cy="4" rx="80" ry="4" className="fill-current" />
+                </svg>
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto lg:mx-0 animate-fadeInRight" style={{ animationDelay: '0.2s' }}>
+              {about.description}
+            </p>
+          </div>
+        </div>
 
-      <div className='mt-6 border pt-6'>
-        <button
-          onClick={() => setIsCryptoModalOpen(true)}
-          style={{
-            padding: '1.55rem 2.0rem',
-            backgroundColor: '#FFBE0B',
-            marginTop: '1rem',
-            fontSize: '1rem',
-            color: 'black',
-            fontWeight: 'bold',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            cursor: 'pointer',
-            transition: 'transform 0.2s',
-          }}
-        >
-          💰 Start Crypto Coaching
-        </button>
-      </div>
-
-      {/* 💰 Faceless BUTTON — placed prominently */}
-      <div className='mt-6 border pt-6'>
-        <button
-          // onClick={() => setIsCryptoModalOpen(true)}
-          style={{
-            padding: '1.55rem 2.0rem',
-            backgroundColor: 'white',
-            marginTop: '1rem',
-            fontSize: '1rem',
-            color: 'black',
-            fontWeight: 'bold',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            cursor: 'pointer',
-            transition: 'transform 0.2s',
-          }}
-        >
-          Start Faceless AI Content Creation <br /> (COMING SOON)
-        </button>
-      </div>
-
-      <div
-        className='about__contact center'
-        style={{ marginTop: '6%', gap: '0%', textAlign: 'center' }}
-      >
-        {resume && (
-          <a href={resume} target='_blank' rel='noreferrer'>
-            <span type='button' className='btn btn--outline'>
-              Resume
-            </span>
-          </a>
-        )}
-
-        {social && (
-          <>
-            {social.github && (
+        {/* <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+          {about.resume && (
+            <a
+              href={about.resume}
+              target="_blank"
+              rel="noreferrer"
+              className="px-8 py-4 bg-primary text-white rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 inline-flex items-center justify-center gap-2 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5 animate-fadeIn"
+              style={{ animationDelay: '0.4s' }}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download Resume
+            </a>
+          )}
+          
+          <div className="flex gap-4 justify-center">
+            {about.social.github && (
               <a
-                href={social.github.trim()}
-                target='_blank'
-                rel='noreferrer'
-                aria-label='github'
-                className='link link--icon'
+                href={about.social.github}
+                target="_blank"
+                rel="noreferrer"
+                className="px-6 py-4 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-300 animate-fadeIn hover:-translate-y-0.5"
+                style={{ animationDelay: '0.5s' }}
               >
-                <GitHubIcon />
+                GitHub
               </a>
             )}
-
-            {social.linkedin && (
+            
+            {about.social.linkedin && (
               <a
-                href={social.linkedin.trim()}
-                target='_blank'
-                rel='noreferrer'
-                aria-label='linkedin'
-                className='link link--icon'
+                href={about.social.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="px-6 py-4 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-300 animate-fadeIn hover:-translate-y-0.5"
+                style={{ animationDelay: '0.6s' }}
               >
-                <LinkedInIcon />
+                LinkedIn
               </a>
             )}
-          </>
-        )}
-      </div>
+          </div>
+        </div> */}
 
-      <CryptoModal
-        isOpen={isCryptoModalOpen}
-        onClose={() => setIsCryptoModalOpen(false)}
-      />
-    </div>
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            { number: '85+', label: 'Students Trained' },
+            { number: '39+', label: 'Projects Completed' },
+            { number: '7+', label: 'Years Experience' },
+            { number: '98%', label: 'Customer Satisfaction' }
+          ].map((stat, index) => (
+            <div
+              key={stat.label}
+              className="animate-fadeIn hover:scale-105 transition-transform duration-300"
+              style={{ animationDelay: `${0.7 + index * 0.1}s` }}
+            >
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+                {stat.number}
+              </div>
+              <div className="text-gray-600 text-sm md:text-base">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
