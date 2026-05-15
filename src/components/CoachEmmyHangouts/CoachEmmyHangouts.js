@@ -7,6 +7,8 @@ import {
 import { onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
 import FloatingBubbles from '../FloatingBubbles/FloatingBubbles';
 
+const isFirebaseAvailable = auth && db;
+
 const rooms = [
   { id: 'nigeria', name: 'Nigeria', region: '🇳🇬', description: 'Connect with people from Nigeria', price: 500, currency: 'NGN', members: 234 },
   { id: 'southwest', name: 'Southwest', region: '🌍', description: 'Southwest Nigeria community', price: 500, currency: 'NGN', members: 156 },
@@ -39,6 +41,11 @@ const CoachEmmyHangouts = () => {
   const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER || '8618202561437';
 
   useEffect(() => {
+    if (!isFirebaseAvailable) {
+      setLoading(false);
+      return;
+    }
+
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
         setUser(firebaseUser);
@@ -77,6 +84,10 @@ const CoachEmmyHangouts = () => {
   }, [privateMessages]);
 
   const handleAuth = async () => {
+    if (!isFirebaseAvailable) {
+      alert('Firebase is not configured. Please contact the administrator.');
+      return;
+    }
     try {
       if (authMode === 'login') {
         await signInWithEmailAndPassword(auth, authData.email, authData.password);
@@ -97,6 +108,7 @@ const CoachEmmyHangouts = () => {
   };
 
   const handleLogout = async () => {
+    if (!isFirebaseAvailable) return;
     await signOut(auth);
     setSelectedRoom(null);
     setMessages([]);
