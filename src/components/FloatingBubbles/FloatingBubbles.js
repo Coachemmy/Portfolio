@@ -5,8 +5,10 @@ const FloatingBubbles = ({ count = 6, color = 'primary', className = '' }) => {
     gradient: 'bg-gradient-to-r from-primary/10 to-secondary/10'
   };
 
-  const bubbles = Array.from({ length: count }, (_, i) => ({
-    size: Math.random() * 80 + 40,
+  const actualCount = typeof window !== 'undefined' && window.innerWidth < 768 ? Math.min(count, 4) : count;
+
+  const bubbles = Array.from({ length: actualCount }, (_, i) => ({
+    size: Math.random() * 60 + 30,
     left: `${Math.random() * 100}%`,
     top: `${Math.random() * 100}%`,
     delay: Math.random() * 5,

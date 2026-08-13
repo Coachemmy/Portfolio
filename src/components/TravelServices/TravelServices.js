@@ -68,7 +68,7 @@ const TravelServices = () => {
           {travelServices.map((service) => (
             <div
               key={service.id}
-              className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-primary transition-all duration-300"
+              className="bg-white border-2 border-gray-200 rounded-2xl p-5 md:p-8 hover:border-primary transition-all duration-300"
             >
               <div className="text-6xl mb-4">{service.icon}</div>
 
@@ -138,7 +138,7 @@ const TravelServices = () => {
           <div className="flex min-h-screen items-center justify-center p-4">
             <div className="fixed inset-0 bg-black bg-opacity-50" onClick={handleCloseModal} />
 
-            <div className="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 max-h-[90vh] overflow-y-auto">
+            <div className="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full p-5 md:p-8 max-h-[90vh] overflow-y-auto">
               {!isSubmitted ? (
                 <>
                   <h2 className="text-2xl font-bold text-gray-900 mb-2">

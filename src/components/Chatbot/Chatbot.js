@@ -133,7 +133,7 @@ const handleSend = async () => {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed top-[90%] border-r-white right-2 z-40 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 ${
+        className={`fixed bottom-16 right-4 md:top-[90%] md:right-2 z-40 px-4 md:px-6 py-3 rounded-full bg-gradient-to-r from-black to-secondary text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 ${
           isOpen ? 'bg-red-500' : 'hover:scale-105'
         }`}
       >
@@ -142,21 +142,21 @@ const handleSend = async () => {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
-            <span className="font-semibold text-sm">Close</span>
+            <span className="font-semibold text-sm hidden md:inline">Close</span>
           </>
         ) : (
           <>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
             </svg>
-            <span className="font-semibold text-sm">CoachEmmy AI Assistant</span>
+            <span className="font-semibold text-sm hidden md:inline">CoachEmmy AI Assistant</span>
           </>
         )}
       </button>
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-40 right-6 z-40 w-96 bg-white rounded-2xl shadow-2xl overflow-hidden animate-slideUp">
+        <div className="fixed bottom-20 left-2 right-2 md:bottom-40 md:right-6 md:left-auto z-40 w-auto md:w-96 bg-white rounded-2xl shadow-2xl overflow-hidden animate-slideUp max-h-[70vh] md:max-h-none flex flex-col">
           {/* Header */}
           <div className="bg-gradient-to-r from-primary to-secondary px-6 py-4 text-white">
             <div className="flex items-center gap-3">
@@ -173,7 +173,7 @@ const handleSend = async () => {
           </div>
 
           {/* Messages */}
-          <div className="h-80 overflow-y-auto px-4 py-4 space-y-4">
+          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 min-h-[200px] max-h-[300px] md:h-80 md:max-h-none">
             {messages.map((message) => (
               <div
                 key={message.id}

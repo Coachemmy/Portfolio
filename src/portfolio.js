@@ -20,7 +20,7 @@ const careerServices = [
     tagline: 'Master Cryptocurrency Trading & Investment',
     description: 'Learn proven strategies for cryptocurrency trading, portfolio management, and passive income generation through staking and DeFi protocols.',
     duration: 'Personalized 1-on-1 Sessions',
-    price: 39999,
+    price: 149999,
     icon: '💰',
     features: [
       'Trading strategies & technical analysis',
@@ -35,7 +35,7 @@ const careerServices = [
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦39,999'
+      amount: '₦149,999'
     }
   },
   {
@@ -44,7 +44,7 @@ const careerServices = [
     tagline: 'Build Automated Content Empire',
     description: 'Create profitable faceless YouTube channels and content automation systems using cutting-edge AI tools without showing your face.',
     duration: 'Personalized 1-on-1 Sessions',
-    price: 24999,
+    price: 99999,
     icon: '🤖',
     features: [
       'AI video generation tools',
@@ -59,7 +59,7 @@ const careerServices = [
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦24,999'
+      amount: '₦99,999'
     }
   },
   {
@@ -68,7 +68,7 @@ const careerServices = [
     tagline: 'Professional Visual Identity',
     description: 'High-quality graphics design services for logos, social media content, flyers, banners, and branding materials.',
     duration: 'Per Project',
-    price: 19999,
+    price: 99999,
     icon: '🎨',
     features: [
       'Logo design & branding',
@@ -83,7 +83,7 @@ const careerServices = [
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦19,999'
+      amount: '₦99,999'
     }
   }
 ]
@@ -95,7 +95,7 @@ const techCourses = [
     tagline: 'Build the Web from Scratch',
     description: 'Master the building blocks of web development with semantic HTML5, accessibility standards, and best practices.',
     duration: '6 Weeks',
-    price: 11000,
+    price: 49999,
     icon: '🌐',
     features: [
       'HTML5 semantic structure',
@@ -109,7 +109,7 @@ const techCourses = [
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦11,000' 
+      amount: '₦49,999' 
     }
   },
   {
@@ -118,7 +118,7 @@ const techCourses = [
     tagline: 'Design Beautiful Websites',
     description: 'Transform plain HTML into stunning websites with modern CSS including Flexbox, Grid, animations, and responsive design.',
     duration: '6 Weeks',
-    price: 19999,
+    price: 49999,
     icon: '🎨',
     features: [
       'CSS selectors & properties',
@@ -132,7 +132,7 @@ const techCourses = [
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦19,999'
+      amount: '₦49,999'
     }
   },
   {
@@ -141,7 +141,7 @@ const techCourses = [
     tagline: 'Bring Websites to Life',
     description: 'Learn JavaScript from fundamentals to advanced concepts with ES6+ features and async programming.',
     duration: '6 Weeks',
-    price: 24999,
+    price: 79999,
     icon: '⚡',
     features: [
       'JavaScript fundamentals',
@@ -155,7 +155,7 @@ const techCourses = [
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦24,999'
+      amount: '₦79,999'
     }
   },
   {
@@ -164,7 +164,7 @@ const techCourses = [
     tagline: 'The Language of AI & Automation',
     description: 'Master Python programming for data science, automation, and AI/ML applications with hands-on projects.',
     duration: '6 Weeks',
-    price: 24999,
+    price: 119999,
     icon: '🐍',
     features: [
       'Python basics & syntax',
@@ -178,7 +178,7 @@ const techCourses = [
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦24,999'
+      amount: '₦119,999'
     }
   },
   {
@@ -187,7 +187,7 @@ const techCourses = [
     tagline: 'Build Intelligent Systems',
     description: 'Dive into ML algorithms, neural networks, and AI applications. Learn to build predictive models from scratch.',
     duration: '6 Weeks',
-    price: 24999,
+    price: 179999,
     icon: '🤖',
     features: [
       'ML fundamentals & concepts',
@@ -201,7 +201,7 @@ const techCourses = [
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦20,000'
+      amount: '₦179,999'
     }
   },
   {
@@ -210,7 +210,7 @@ const techCourses = [
     tagline: 'Master Code Collaboration',
     description: 'Learn Git from basics to advanced workflows. Master branching strategies and professional development practices.',
     duration: '6 Weeks',
-    price: 24999,
+    price: 59999,
     icon: '📦',
     features: [
       'Git fundamentals & commands',
@@ -224,7 +224,7 @@ const techCourses = [
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-          amount: '₦20,000'
+          amount: '₦59,999'
     }
   }
 ]
@@ -403,8 +403,8 @@ const travelServices = [
     title: 'China Travel Consultation',
     tagline: 'China Travel Consultation Guidance',
     description: 'Expert guidance for business travel and relocation to China. Complete step-by-step documentation, expat guidance, and personalized recommendations.',
-    duration: 'Per Session',
-    price: 29999,
+    duration: 'Per Session/Hour',
+    price: 49999,
     icon: '🇨🇳',
     features: [
       'Documentation required checklist',
@@ -419,7 +419,7 @@ const travelServices = [
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦29,999'
+      amount: '₦49,999'
     }
   },
   {
@@ -427,8 +427,8 @@ const travelServices = [
     title: 'Tech Career Consulting',
     tagline: 'Tech Career Path Guidance',
     description: 'Get expert advice on choosing the right tech path, learning strategies, career progression, and how to navigate the tech industry successfully.',
-    duration: 'Per Session',
-    price: 24999,
+    duration: 'Per Session/Hour',
+    price: 79999,
     icon: '💻',
     features: [
       'Tech path recommendations',
@@ -436,14 +436,15 @@ const travelServices = [
       'Skill development planning',
       'Learning roadmap creation',
       'Tech industry insights',
-      'Personalized mentorship'
+      'Personalized mentorship',
+      'CV + linkedIn + Roadmap'
     ],
     popular: true,
     paymentDetails: {
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦24,999'
+      amount: '₦79,999'
     }
   },
   {
@@ -475,11 +476,11 @@ const travelServices = [
 const webServices = [
   {
     id: 'personal-small-business',
-    title: 'Personal & Small Business',
+    title: 'Personal & Small Business(AI-Enabled)',
     tagline: 'Professional Online Presence',
     description: 'Create stunning personal websites, portfolios, and small business sites to showcase your brand, skills, and services.',
     duration: '1-3 Weeks',
-    price: 149999,
+    price: 399999,
     icon: '🌐',
     features: [
       'Personal websites & portfolios',
@@ -490,21 +491,21 @@ const webServices = [
       'Basic SEO optimization'
     ],
     popular: true,
-    priceRange: '₦149,999-₦249,999',
+    priceRange: '₦399,999-₦699,999',
     paymentDetails: {
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦149,999-₦249,999'
+      amount: '₦399,999-₦699,999'
     }
   },
   {
     id: 'ngo-school',
-    title: 'NGO & Educational',
+    title: 'NGO & Educational(AI-Enabled)',
     tagline: 'Amplify Your Cause',
     description: 'Impactful websites for NGOs, schools, colleges, and educational institutions with specialized features.',
     duration: '3-6 Weeks',
-    price: 299999,
+    price: 1199999,
     icon: '🏛️',
     features: [
       'NGO & charity websites',
@@ -515,21 +516,21 @@ const webServices = [
       'News & announcements'
     ],
     popular: true,
-    priceRange: '₦299,999-₦499,999',
+    priceRange: '₦799,999-₦1,499,999',
     paymentDetails: {
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦299,999-₦499,999'
+      amount: '₦799,999-₦1,499,999'
     }
   },
   {
     id: 'ecommerce-enterprise',
-    title: 'E-commerce & Enterprise',
+    title: 'E-commerce & Enterprise(AI-Enabled)',
     tagline: 'Scale Your Business',
     description: 'Full-featured e-commerce platforms and enterprise-level web applications for businesses of all sizes.',
     duration: '4-12 Weeks',
-    price: 499999,
+    price: 1999999,
     icon: '🛒',
     features: [
       'Online stores',
@@ -540,12 +541,12 @@ const webServices = [
       'Analytics & reporting'
     ],
     popular: true,
-    priceRange: '₦599,999-₦1,499,999',
+    priceRange: '₦1,999,999-₦4,999,999',
     paymentDetails: {
       bankName: 'GTBank',
       accountName: 'Emmanuel Abiola',
       accountNumber: '0123456789',
-      amount: '₦599,999-₦1,499,999'
+      amount: '₦1,999,999-₦4,999,999'
     }
   }
 ]

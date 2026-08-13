@@ -24,7 +24,7 @@ const App = () => {
   const [{ themeName }] = useContext(ThemeContext);
 
   return (
-    <div id="top" className={`${themeName} font-poppins min-h-screen transition-colors duration-300 bg-white`}>
+    <div id="top" className={`${themeName} font-poppins min-h-screen transition-colors duration-300 bg-white overflow-x-hidden max-w-full`}>
       <Navbar />
       <Routes>
         <Route

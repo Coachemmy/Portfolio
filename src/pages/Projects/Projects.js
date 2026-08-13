@@ -20,7 +20,7 @@ const Projects = () => {
               href={project.livePreview}
               target="_blank"
               rel="noreferrer"
-              className="group bg-white border-2 border-gray-200 rounded-2xl p-6 hover:border-primary transition-all duration-300"
+              className="group bg-white border-2 border-gray-200 rounded-2xl p-5 md:p-6 hover:border-primary transition-all duration-300"
             >
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">

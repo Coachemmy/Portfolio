@@ -35,9 +35,9 @@ const Navbar = () => {
   ]
 
   return (
-    <nav className={`top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-500 ${isScrolled ? 'bg-white/95 shadow-lg shadow-gray-200/50' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-500 ${isScrolled || showNavList ? 'bg-white/95 shadow-lg shadow-gray-200/50' : 'bg-transparent'}`}>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex justify-between items-center py-4'>
+        <div className='flex justify-between items-center py-3 md:py-4'>
           <Link 
             to='/' 
             className='text-2xl font-bold text-primary font-dancing hover:scale-105 transition-transform duration-300'

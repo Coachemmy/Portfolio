@@ -184,12 +184,12 @@ const PolicyModal = ({ isOpen, onClose, policy }) => {
         <div className="relative bg-white/95 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-scaleIn backdrop-blur-md">
           <button
             onClick={onClose}
-            className="sticky top-4 left-full float-right mr-4 -mt-4 w-12 h-12 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 hover:shadow-xl transition-all duration-300 hover:scale-110 z-10"
+            className="absolute top-3 right-3 w-10 h-10 md:w-12 md:h-12 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 hover:shadow-xl transition-all duration-300 hover:scale-110 z-10"
           >
             <CloseIcon />
           </button>
 
-          <div className="p-8">
+          <div className="p-5 md:p-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">{policyContent.title}</h1>
             <p className="text-sm text-gray-500 mb-6">Last updated: {policyContent.lastUpdated}</p>
 

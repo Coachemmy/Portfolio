@@ -61,17 +61,17 @@ const CareerServices = () => {
               className={`bg-white border-2 border-gray-100 rounded-2xl overflow-hidden hover:border-primary hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="h-48 overflow-hidden relative">
+              <div className="h-40 md:h-48 overflow-hidden relative">
                 <img 
                   src={serviceImages[service.id]} 
                   alt={service.title}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-4 left-4 text-4xl">{service.icon}</div>
+                <div className="absolute bottom-2 left-2 md:bottom-4 md:left-4 text-2xl md:text-4xl">{service.icon}</div>
               </div>
               
-              <div className="p-6">
+              <div className="p-4 md:p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {service.title}
                 </h3>

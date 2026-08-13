@@ -57,7 +57,7 @@ const Reviews = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className={`bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`bg-gray-50 rounded-2xl p-4 md:p-6 hover:shadow-lg transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="flex items-center gap-1 mb-4">
@@ -69,7 +69,7 @@ const Reviews = () => {
               </p>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-base md:text-lg">
                   {review.name.charAt(0)}
                 </div>
                 <div>
