@@ -16,7 +16,6 @@ import Contact from './pages/Contact/Contact';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import RefundPolicy from './pages/RefundPolicy';
-import Affiliate from './components/Affiliate/Affiliate';
 import Chatbot from './components/Chatbot/Chatbot';
 import AboutPage from './components/AboutPage/AboutPage';
 
@@ -44,7 +43,6 @@ const App = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/affiliate" element={<Affiliate />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />

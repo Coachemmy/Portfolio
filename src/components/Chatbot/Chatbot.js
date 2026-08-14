@@ -12,7 +12,19 @@ const Chatbot = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const typingIntervalRef = useRef(null);
   const messagesEndRef = useRef(null);
+
+  const clearStreaming = () => {
+    if (typingIntervalRef.current) {
+      clearInterval(typingIntervalRef.current);
+      typingIntervalRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    return () => clearStreaming();
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -22,15 +34,41 @@ const Chatbot = () => {
     scrollToBottom();
   }, [messages]);
 
+  const streamText = (messageId, fullText, onDone) => {
+    let i = 0;
+    // ~25 chars per 100ms feels natural; for very long replies speed it up slightly
+    const delay = fullText.length > 500 ? 10 : 18;
+
+    typingIntervalRef.current = setInterval(() => {
+      setMessages(prev => prev.map(m =>
+        m.id === messageId
+          ? { ...m, text: fullText.slice(0, i) }
+          : m
+      ));
+      i++;
+      if (i > fullText.length) {
+        clearStreaming();
+        if (onDone) onDone();
+      }
+    }, delay);
+  };
+
 const handleSend = async () => {
     if (!inputValue.trim()) return;
 
+    // If AI is still typing out the last answer, cancel the stream so we don't have competing updates
+    clearStreaming();
+
+    const nextId = messages.length + 1;
+
     const userMessage = {
-      id: messages.length + 1,
+      id: nextId,
       sender: 'user',
       text: inputValue,
       timestamp: new Date().toLocaleTimeString()
     };
+
+    const pendingBotId = nextId + 1;
 
     setMessages(prev => [...prev, userMessage]);
     setInputValue('');
@@ -39,14 +77,15 @@ const handleSend = async () => {
     const apiKey = process.env.REACT_APP_GROQ_API_KEY;
 
     if (!apiKey) {
-      const botMessage = {
-        id: messages.length + 2,
+      const fallbackText = 'I apologize, but the chat service is currently unavailable. Please contact us directly via WhatsApp at +86 18 2025 61437 or email at coachemmyb@gmail.com for assistance.';
+      setMessages(prev => [...prev, {
+        id: pendingBotId,
         sender: 'bot',
-        text: 'I apologize, but the chat service is currently unavailable. Please contact us directly via WhatsApp at +86 18 2025 61437 or email at coachemmyb@gmail.com for assistance.',
+        text: '',
         timestamp: new Date().toLocaleTimeString()
-      };
-      setMessages(prev => [...prev, botMessage]);
+      }]);
       setIsTyping(false);
+      streamText(pendingBotId, fallbackText);
       return;
     }
 
@@ -62,30 +101,65 @@ const handleSend = async () => {
           messages: [
             {
               role: 'system',
-              content: `You are CoachEmmy AI - a concise, friendly assistant for CoachEmmy's website.
+              content: `You are CoachEmmy AI — the powerful AI sales & support assistant for CoachEmmy's portfolio website. CoachEmmy (Emmanuel Abiola) is a Software/AI Engineer & Educator based in Nigeria with 8+ years of experience, 85+ students trained, and 39+ projects completed.
 
-              SERVICES:
-              • Tech Courses: HTML, CSS, JavaScript, Python, ML, Git (6 weeks, ₦20k each)
-              • Career: Crypto Coaching, AI Content Creation (₦35k)
-              • Web Services: Website building (₦100k-₦1M)
-              • Travel: Consultancy, relocation, currency exchange
-              • Affiliate: 13% commission
+PERSONALITY:
+- Confident, friendly, professional — speak like a knowledgeable senior coach
+- Use natural Nigerian/African English (not too formal)
+- When asked about pricing or services, be specific and complete. It's OK to give a structured breakdown
+- If user sounds interested, proactively suggest they reach out via WhatsApp to enroll
 
-              CONTACT: WhatsApp +86 18 2025 61437 | Email coachemmyb@gmail.com | Nigeria
+CONTACT:
+- WhatsApp: +86 18 2025 61437  (or wa.me/8618202561437)
+- Email: coachemmyb@gmail.com
+- Payment accepted: Bank transfer (GTBank & Opay), Paystack on enrollment
+- 6-week courses: full payment required before access
+- Certificates issued on completion
+- Lifetime access to course content
+- Sessions: WhatsApp groups + Zoom, all recorded
 
-              RULES:
-              1. Answer ONLY what is asked - do NOT give extra info
-              2. Keep responses SHORT (1-2 sentences max)
-              3. Use natural, friendly tone
-              4. If unsure, say "I can connect you with CoachEmmy via WhatsApp!"`
+====================
+SERVICES & PRICING
+====================
+
+1. TECH COURSES (6 weeks each, lifetime access, WhatsApp support)
+   • HTML Fundamentals — ₦49,999
+   • CSS Styling Mastery — ₦49,999
+   • JavaScript Development — ₦79,999
+   • Python Programming — ₦119,999
+   • Machine Learning — ₦179,999
+   • Git & Version Control — ₦59,999
+
+2. CAREER / 1-ON-1 COACHING
+   • Crypto Coaching — ₦149,999  (Trading strategies, Technical analysis, Portfolio & risk management, DeFi/staking, Real-time insights)
+   • Faceless AI Content Creation — ₦99,999  (AI video tools, Niche selection, Content automation, YouTube SEO, Monetization, Channel growth tactics)
+   • Graphics Design — ₦99,999 per project  (Logos, branding, social media, flyers, banners, business cards, custom illustrations)
+
+3. TRAVEL & CAREER CONSULTING
+   • China Travel Consultation — ₦49,999 per session  (Visa guidance, relocation, expat advice, documentation checklist, business travel planning)
+   • Tech Career Consulting — ₦79,999 per session  (Tech path recommendation, learning roadmap, CV + LinkedIn + Roadmap review, mentorship, industry insights)
+   • Currency Exchange (NGN ↔ Yuan) — Contact CoachEmmy on WhatsApp for current rate
+
+4. WEB DEVELOPMENT (AI-Enabled, full websites)
+   • Personal & Small Business — ₦399,999 (range ₦399,999 – ₦699,999) | 1–3 weeks
+   • NGO & Educational — ₦1,199,999 (range ₦799,999 – ₦1,499,999) | 3–6 weeks
+   • E-commerce & Enterprise — ₦1,999,999 (range ₦1,999,999 – ₦4,999,999) | 4–12 weeks
+
+RULES:
+1. Always quote the EXACT prices above. Never use old/approximate figures
+2. If user asks about pricing → give the full category list for that service area
+3. If user asks which course to start with → recommend "HTML → CSS → JavaScript" for web, or "Python → Machine Learning" for AI
+4. Keep responses friendly and structured; don't ramble, but be complete when it's a pricing/service question
+5. If unsure, end with: "For detailed info and to enroll, send a message to CoachEmmy on WhatsApp at +86 18 2025 61437!"`
             },
-            {
-              role: 'user',
-              content: inputValue
-            }
+            ...messages.filter(m => m.id > 1).map(m => ({
+              role: m.sender === 'user' ? 'user' : 'assistant',
+              content: m.text
+            })),
+            { role: 'user', content: userMessage.text }
           ],
-          max_tokens: 150,
-          temperature: 0.5
+          max_tokens: 600,
+          temperature: 0.6
         })
       });
 
@@ -100,25 +174,31 @@ const handleSend = async () => {
         throw new Error('Invalid API response format');
       }
 
-      const botMessage = {
-        id: messages.length + 2,
-        sender: 'bot',
-        text: data.choices[0].message.content,
-        timestamp: new Date().toLocaleTimeString()
-      };
+      const replyText = data.choices[0].message.content;
 
-      setMessages(prev => [...prev, botMessage]);
-    } catch (error) {
-      const botMessage = {
-        id: messages.length + 2,
+      // First add an empty bot message, then stream text into it
+      setMessages(prev => [...prev, {
+        id: pendingBotId,
         sender: 'bot',
-        text: `I'm having trouble connecting to the AI service right now. Please contact CoachEmmy directly via WhatsApp at +86 18 2025 61437 or email at coachemmyb@gmail.com for assistance.`,
+        text: '',
         timestamp: new Date().toLocaleTimeString()
-      };
+      }]);
 
-      setMessages(prev => [...prev, botMessage]);
-    } finally {
+      // Hide the 3-dot "typing" indicator now that the bot bubble exists.
+      // The "typing cursor" feeling comes from the streaming characters below.
       setIsTyping(false);
+
+      streamText(pendingBotId, replyText);
+    } catch (error) {
+      const errorText = `I'm having trouble connecting to the AI service right now. Please contact CoachEmmy directly via WhatsApp at +86 18 2025 61437 or email at coachemmyb@gmail.com for assistance.`;
+      setMessages(prev => [...prev, {
+        id: pendingBotId,
+        sender: 'bot',
+        text: '',
+        timestamp: new Date().toLocaleTimeString()
+      }]);
+      setIsTyping(false);
+      streamText(pendingBotId, errorText);
     }
   };
 

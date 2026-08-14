@@ -41,17 +41,19 @@ const AboutPage = () => {
 
         {/* Founder Section */}
         <div className={`grid lg:grid-cols-2 gap-12 items-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="relative">
-            <div className="bg-white rounded-2xl shadow-xl p-4">
-              <img
-                src="/images/coach.jpg"
-                alt="Emmanuel Abiola - CoachEmmy"
-                className="w-full h-auto rounded-xl"
-              />
+          <div className="relative flex justify-center">
+            <div className="bg-white rounded-2xl shadow-xl p-3 md:p-4 inline-block">
+              <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden">
+                <img
+                  src="/images/coach.jpg"
+                  alt="Emmanuel Abiola - CoachEmmy"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 bg-primary text-white rounded-xl p-4 shadow-lg">
-              <div className="text-2xl font-bold">7+</div>
-              <div className="text-sm opacity-80">Years Experience</div>
+            <div className="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 bg-primary text-white rounded-xl p-3 md:p-4 shadow-lg">
+              <div className="text-xl md:text-2xl font-bold">8+</div>
+              <div className="text-xs md:text-sm opacity-80">Years Experience</div>
             </div>
           </div>
 
@@ -65,7 +67,7 @@ const AboutPage = () => {
             <p className="text-gray-600 mb-6 leading-relaxed">
               I'm a passionate tech educator and career coach dedicated to helping 
               individuals unlock their full potential in the digital world. With over 
-              7 years of experience in software development and tech education, I've 
+              8 years of experience in software development and tech education, I've 
               helped hundreds of students transform their careers and achieve their goals.
             </p>
             <p className="text-gray-600 mb-6 leading-relaxed">
@@ -144,7 +146,7 @@ const AboutPage = () => {
             <div className="text-sm text-gray-500">Success Rate</div>
           </div>
           <div className="bg-white rounded-xl p-6 text-center shadow-lg">
-            <div className="text-3xl font-bold text-primary mb-2">7+</div>
+            <div className="text-3xl font-bold text-primary mb-2">8+</div>
             <div className="text-sm text-gray-500">Years Experience</div>
           </div>
         </div>

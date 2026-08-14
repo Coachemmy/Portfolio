@@ -308,7 +308,7 @@ npm run build
 
 ## 📊 Key Metrics
 
-- **500+** Students Trained
+- **85+** Students Trained
 - **50+** Projects Completed
 - **10+** Years Experience
 - **98%** Customer Satisfaction
